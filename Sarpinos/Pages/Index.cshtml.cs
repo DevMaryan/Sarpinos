@@ -1,25 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
-using System;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using Sarpinos.Mappings;
+using Sarpinos.Services.Interfaces;
+using Sarpinos.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace Sarpinos.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly IOfferService _offerService;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(IOfferService offerService)
         {
-            _logger = logger;
+            _offerService = offerService;
         }
+
+        public List<OfferViewModel> Offers { get; set; }
 
         public void OnGet()
         {
-
+            var offers = _offerService.GetAllValid();
+            Offers = offers.Select(x => x.ToViewModel()).ToList();
         }
     }
 }
