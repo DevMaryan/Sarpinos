@@ -1,0 +1,25 @@
+﻿@page
+
+@model Sarpinos.Pages.DetailsModel
+
+@{ ViewData["Title"] = "Details"; }
+
+@section Styles{
+    <link href="/css/details.css" rel="stylesheet" />
+}
+
+@if (Model.MenuItem != null)
+{
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.MenuItem.Name</h5>
+        <p class="card-text">@Model.MenuItem.Description</p>
+        <p class="card-text price-tag">$@Model.MenuItem.Price @Model.MenuItem.Currency</p>
+    </div>
+    <img src="@Model.MenuItem.ImageUrl" class="card-img-bottom">
+</div>}
+
+
+@if (Model.ErrorMessage != null)
+{
+<h2 class="text-danger">@Model.ErrorMessage</h2>}

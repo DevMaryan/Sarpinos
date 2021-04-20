@@ -36,9 +36,15 @@ namespace Sarpinos
 
             // Register Services
             services.AddTransient<IOfferService, OfferService>();
+            services.AddTransient<IMenuItemService, MenuItemService>();
+            services.AddTransient<IOrderService, OrderService>();
+
 
             // Register Repository
             services.AddTransient<IOffersRepository, OffersRepository>();
+            services.AddTransient<IMenuItemRepository, MenuItemRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,13 @@
+﻿.order-form{
+    width:300px;
+    margin:0 auto;
+}
+.submit-kopce {
+    background-color: #F84A41;
+    color:#FFF;
+    width:100%;
+    cursor:pointer;
+    border-radius:3px;
+    border:0px;
+    padding:0.5rem 1rem;
+}

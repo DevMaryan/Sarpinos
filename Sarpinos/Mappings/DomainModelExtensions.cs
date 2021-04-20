@@ -19,5 +19,17 @@ namespace Sarpinos.Mappings
                 ValidTo = entity.ValidTo
             };
         }
+        public static MenuItemViewModel ToViewModel(this MenuItem entity)
+        {
+            return new MenuItemViewModel
+            {
+                Id = entity.Id,
+                Name = entity.Name,
+                Description = entity.Description,
+                ImageUrl = entity.ImageUrl,
+                Price = entity.Price,
+                Currency = entity.Currency
+            };
+        }
     }
 }
