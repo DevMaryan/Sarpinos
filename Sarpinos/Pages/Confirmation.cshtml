@@ -1,0 +1,29 @@
+﻿@page
+
+@model Sarpinos.Pages.ConfirmationModel
+@{
+    ViewData["Title"] = "Confirmation";
+}
+
+@section Styles{
+    <link href="/css/order.css" rel="stylesheet" />
+}
+
+@if (Model.Message == "Thank you for choosing us. Enjoy your meal!")
+{
+    <div class="confirmation">
+        <span class="confirmation-card">
+            @Model.Message
+        </span>
+        <span class="confirmation-sign"><i class="fas fa-utensils fa-4x"></i></span>
+    </div>
+}
+else
+{
+    <div class="confirmation-blue">
+        <span class="confirmation-card">
+            @Model.Message
+        </span>
+        <span class="confirmation-sign"><i class="fas fa-rss fa-4x"></i></span>
+    </div>
+}

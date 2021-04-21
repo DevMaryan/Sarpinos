@@ -37,3 +37,14 @@
     </div>
     <button type="submit" class="submit-kopce">Order</button>
 </form>
+
+<div style="background-color:#f2f2f2;margin:0 auto; margin-top:40px; padding:20px; width:400px;border-radius:3px;">
+    <form asp-page="Order" asp-page-handler="Subscribe" method="post">
+        <h3>Subscribe</h3>
+        <span class="form-text text-muted">We'll never share your email with anyone else.</span>
+        <div class="form-group">
+            <input class="form-control" type="email" name="email" id="subscriptionEmail" placeholder="Enter email" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+</div>

@@ -13,10 +13,12 @@ namespace Sarpinos.Pages
     public class OrderModel : PageModel
     {
         private readonly IOrderService _orderService;
+        private readonly ISubscriptionService _subscriptionService;
 
-        public OrderModel(IOrderService orderService)
+        public OrderModel(IOrderService orderService, ISubscriptionService subscriptionService)
         {
             _orderService = orderService;
+            _subscriptionService = subscriptionService;
         }
 
         [BindProperty]
@@ -26,10 +28,24 @@ namespace Sarpinos.Pages
         {
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-            var newOrder = Order.ToDomainModel();
-            _orderService.Create(newOrder);
+            if (ModelState.IsValid)
+            {
+                var newOrder = Order.ToDomainModel();
+                _orderService.Create(newOrder);
+                return RedirectToPage("Confirmation", "OrderCompleted");
+            }
+            return Page();
+        }
+
+
+        // Subscription
+        public IActionResult OnPostSubscribe(string email)
+        {
+            _subscriptionService.Create(email);
+
+            return RedirectToPage("Confirmation", "SubscriptionCompleted");
         }
     }
 }

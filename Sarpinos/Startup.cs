@@ -38,12 +38,14 @@ namespace Sarpinos
             services.AddTransient<IOfferService, OfferService>();
             services.AddTransient<IMenuItemService, MenuItemService>();
             services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<ISubscriptionService, SubscriptionService>();
 
 
             // Register Repository
             services.AddTransient<IOffersRepository, OffersRepository>();
             services.AddTransient<IMenuItemRepository, MenuItemRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<ISubscriptionRepository, SubscriptionRepository>();
 
         }
 
