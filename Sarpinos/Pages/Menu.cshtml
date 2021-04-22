@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 
 @model Sarpinos.Pages.MenuModel
 
@@ -28,7 +28,7 @@
 
                             <div class="row m-2">
                                 <p class="price">Add to cart <i class="fas fa-cart-plus the-cart"></i></p>
-                                <a asp-page="Details" asp-route-id="@item.Id" class="customize">See more</a>
+                                <a asp-page="Details" asp-route-slug="@item.Slug" class="customize">See more</a>
                             </div>
                         </div>
                     </div>

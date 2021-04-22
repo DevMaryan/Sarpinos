@@ -11,5 +11,6 @@ namespace Sarpinos.Repositories.Interfaces
         List<MenuItem> GetAll();
 
         MenuItem GetById(int id);
+        MenuItem GetBySlug(string slug);
     }
 }

@@ -11,5 +11,7 @@ namespace Sarpinos.Services.Interfaces
         List<MenuItem> GetAll();
 
         MenuItem GetById(int id);
+
+        MenuItem GetBySlug(string slug);
     }
 }

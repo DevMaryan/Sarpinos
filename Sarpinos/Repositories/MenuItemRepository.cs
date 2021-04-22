@@ -24,5 +24,10 @@ namespace Sarpinos.Repositories.Interfaces
         {
             return _dbContext.MenuItems.FirstOrDefault(x => x.Id == id);
         }
+
+        public MenuItem GetBySlug(string slug)
+        {
+            return _dbContext.MenuItems.FirstOrDefault(x => x.Slug == slug);
+        }
     }
 }
