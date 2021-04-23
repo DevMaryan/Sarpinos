@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sarpinos.Repositories;
 
 namespace Sarpinos.Migrations
 {
     [DbContext(typeof(SarpinosDbContext))]
-    partial class SarpinosDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210423194750_ImplementedIdentity")]
+    partial class ImplementedIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -312,10 +314,6 @@ namespace Sarpinos.Migrations
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("varchar(24)");
 
                     b.Property<string>("Surname")
                         .IsRequired()

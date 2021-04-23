@@ -1,0 +1,58 @@
+﻿@page
+@model Sarpinos.Pages.Admin.OrderListModel
+@{ ViewData["Title"] = "Orders list"; }
+
+
+<h1>Orders List:</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr class="bg-dark text-light">
+            <th>
+                Name
+            </th>
+            <th>
+                Surname
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Message
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.OrdersList)
+        {
+        <tr>
+            <td>@order.Name</td>
+            <td>@order.Surname</td>
+            <td>@order.Phone</td>
+            <td>@order.Address</td>
+            <td>@order.Message</td>
+
+            @if (order.Status == Models.OrderStatus.Pending)
+            {
+            <td>
+                <a class="btn btn-success" asp-page="/Admin/OrderList" asp-page-handler="SetProcessed" asp-route-id="@order.Id">Set Processed</a>
+            </td> 
+             }
+            else
+            {
+            <td class="text-success">Processed</td>                
+            }
+            <td><a asp-page="/Admin/OrderList" asp-page-handler="DeleteOrder" asp-route-id="@order.Id"><i class="fas fa-trash-alt text-danger"></i></a></td>
+        </tr>
+        }
+    </tbody>
+</table>

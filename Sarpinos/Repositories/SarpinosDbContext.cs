@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Sarpinos.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Sarpinos.Repositories
 {
-    public class SarpinosDbContext : DbContext
+    public class SarpinosDbContext : IdentityDbContext<IdentityUser>
     {
         public SarpinosDbContext(DbContextOptions<SarpinosDbContext> options) : base(options)
         {
@@ -22,6 +24,7 @@ namespace Sarpinos.Repositories
             builder.Entity<MenuItem>()
                 .HasIndex(x => x.Slug)
                 .IsUnique();
+            base.OnModelCreating(builder);
         }
     }
 }

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,6 +33,11 @@ namespace Sarpinos
             {
                 options.UseSqlServer(Configuration.GetConnectionString("SarpinosDB"));
             });
+
+            // Identity
+            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<SarpinosDbContext>().AddDefaultTokenProviders();
+
+
             services.AddRazorPages();
 
             // Register Services
@@ -67,6 +73,8 @@ namespace Sarpinos
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
