@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Sarpinos.Repositories
 {
-    public class SarpinosDbContext : IdentityDbContext<IdentityUser>
+    public class SarpinosDbContext : IdentityDbContext
     {
         public SarpinosDbContext(DbContextOptions<SarpinosDbContext> options) : base(options)
         {

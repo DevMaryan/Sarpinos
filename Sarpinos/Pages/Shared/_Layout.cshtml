@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-signin-client_id" content="382583633339-h2kdt73uo8eicfs6jd6u727f021u15r0.apps.googleusercontent.com">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -34,10 +35,11 @@
                         </li>
                     </ul>
                 </div>
-                <div class="shopping">
-                    <a href="" class="shopcart"><i class="fas fa-shopping-cart fa-2x"></i></a>
-                    <span class="shopcart-counter">7</span>
-                </div>
+                <partial name="_LoginPartial.cshtml">
+                    <div class="shopping">
+                        <a href="" class="shopcart"><i class="fas fa-shopping-cart fa-2x"></i></a>
+                        <span class="shopcart-counter">7</span>
+                    </div>
             </div>
         </nav>
     </header>
@@ -56,6 +58,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     @RenderSection("Scripts", required: false)
 </body>

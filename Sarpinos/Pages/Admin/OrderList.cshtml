@@ -3,7 +3,9 @@
 @{ ViewData["Title"] = "Orders list"; }
 
 
-<h1>Orders List:</h1>
+<h1 class="btn btn-primary">
+    Orders <span class="badge badge-light">@Model.OrdersList.Count</span>
+</h1>
 
 <table class="table table-hover">
     <thead>
@@ -49,7 +51,7 @@
              }
             else
             {
-            <td class="text-success">Processed</td>                
+            <td class="text-danger">Processed</td>                
             }
             <td><a asp-page="/Admin/OrderList" asp-page-handler="DeleteOrder" asp-route-id="@order.Id"><i class="fas fa-trash-alt text-danger"></i></a></td>
         </tr>
