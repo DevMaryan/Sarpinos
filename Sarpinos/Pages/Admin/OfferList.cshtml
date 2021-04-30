@@ -1,0 +1,63 @@
+﻿@page
+@model Sarpinos.Pages.Admin.OfferListModel
+
+@{
+    ViewData["Title"] = "OfferList";
+}
+
+<h1>Offers</h1>
+
+<p>
+    <a asp-page="CreateOffer" class="btn btn-outline-primary">Create New</a>
+</p>
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr class="bg-dark text-light">
+            <th>
+                @Html.DisplayNameFor(model => model.Offer[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Offer[0].ImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Offer[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Offer[0].ValidTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Offer[0].DateCreated)
+            </th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Offer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                <img src="@item.ImageUrl" style="width:120px;height:60px;border-radius:3px;"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValidTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                <a asp-page="OfferUpdate" asp-route-id="@item.Id"><i class="fas fa-pen-square fa-2x text-success"></i></a> 
+            </td>
+            <td>
+                <a asp-page="DeleteOffer" asp-route-id="@item.Id"><i class="fas fa-trash-alt fa-2x text-danger"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

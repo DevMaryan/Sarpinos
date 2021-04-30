@@ -9,5 +9,6 @@ namespace Sarpinos.Repositories.Interfaces
     public interface IOffersRepository
     {
         List<Offer> GetAllValid();
+        void Create(Offer newOffer);
     }
 }

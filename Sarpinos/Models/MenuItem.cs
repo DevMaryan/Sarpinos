@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sarpinos.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -32,5 +33,10 @@ namespace Sarpinos.Models
 
         [Required]
         public string Slug { get; set; }
+
+        internal object Select(Func<object, OrdersListViewModel> p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

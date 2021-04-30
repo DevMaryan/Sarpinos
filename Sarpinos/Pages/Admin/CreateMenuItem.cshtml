@@ -1,0 +1,32 @@
+﻿@page
+@model Sarpinos.Pages.Admin.MenuItemModel
+@{
+    ViewData["Title"] = "Create new menu item";
+}
+
+<div class="container">
+    <form asp-page="MenuItem" method="POST">
+        <div class="form-group">
+            <label asp-for="@Model.MenuItem.Name">Name:</label>
+            <input type="text" asp-for="@Model.MenuItem.Name" class="form-control" placeholder="Enter name" />
+            <span asp-validation-for="@Model.MenuItem.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.MenuItem.ImageUrl">Image:</label>
+            <input type="text" asp-for="@Model.MenuItem.ImageUrl" class="form-control" placeholder="Enter image" />
+            <span asp-validation-for="@Model.MenuItem.ImageUrl" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.MenuItem.Description">Description:</label>
+            <input type="text" asp-for="@Model.MenuItem.Description" class="form-control" placeholder="Enter description" />
+            <span asp-validation-for="@Model.MenuItem.Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.MenuItem.Price">Price:</label>
+            <input type="text" asp-for="@Model.MenuItem.Price" class="form-control" placeholder="Enter price" />
+            <span asp-validation-for="@Model.MenuItem.Price" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-success">Create</button>
+    </form>
+
+</div>

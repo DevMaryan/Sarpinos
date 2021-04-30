@@ -13,7 +13,7 @@ namespace Sarpinos.ViewModels
         public string Description { get; set; }
         public decimal Price { get; set; }
         public string Currency { get; set; }
-
+        public DateTime DateCreated { get; set; }
         public string Slug { get; set; }
     }
 }

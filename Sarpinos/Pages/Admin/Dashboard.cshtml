@@ -1,0 +1,71 @@
+﻿@page
+
+@model Sarpinos.Pages.Admin.DashboardModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+@section Styles{
+    <link href="/css/dashboard.css" rel="stylesheet" />
+}
+<h3>User Actions</h3>
+<div class="container d-flex row">
+    <a asp-page="Users">
+        <div class="box">
+            <span>Users <i class="fas fa-users"></i> </span>
+        </div>
+    </a>
+    <a asp-page="UserRole">
+        <div class="box">
+            <span>User Roles<i class="fas fa-user"></i> </span>
+        </div>
+    </a>
+    <a asp-page="CreateRole">
+        <div class="box">
+            <span>Create Role<i class="fas fa-user"></i> </span>
+        </div>
+    </a>
+</div>
+
+<h3>Menu Actions</h3>
+<div class="container d-flex row">
+    <a asp-page="CreateMenuItem">
+        <div class="box">
+            <span>New Menu Item <i class="fas fa-plus-circle"></i> </span>
+        </div>
+    </a>
+
+    <a asp-page="MenuItemList">
+        <div class="box">
+            <span>Menu List <i class="fas fa-list"></i></span>
+        </div>
+    </a>
+</div>
+
+<h3>Orders</h3>
+<div class="container d-flex row">
+    <a asp-page="OrderList">
+        <div class="box">
+            <span>Orders <i class="fas fa-list"></i></span>
+        </div>
+    </a>
+
+</div>
+
+<h3>Offers</h3>
+<div class="container d-flex row">
+    <a asp-page="CreateOffer">
+        <div class="box">
+            <span>New Offer <i class="fas fa-plus-circle"></i></span>
+        </div>
+    </a>
+    <a asp-page="OfferList">
+        <div class="box">
+            <span>Offers <i class="fas fa-plus-circle"></i></span>
+        </div>
+    </a>
+</div>
+
+
+

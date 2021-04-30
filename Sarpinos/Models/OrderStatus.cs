@@ -8,6 +8,7 @@ namespace Sarpinos.Models
     public enum OrderStatus
     {
         Pending,
-        Processed
+        Processed,
+        Done
     }
 }

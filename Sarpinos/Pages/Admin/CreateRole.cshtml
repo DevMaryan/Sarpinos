@@ -1,0 +1,18 @@
+﻿@page
+@model Sarpinos.Pages.Admin.CreateRoleModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<div class="container">
+    <form asp-page="CreateRole" method="POST">
+        <div class="form-group">
+            <label asp-for="@Model.Role">Role name:</label>
+            <input type="text" asp-for="@Model.Role" class="form-control" placeholder="Enter role name" />
+            <span asp-validation-for="@Model.Role" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-success">Create</button>
+    </form>
+
+</div>

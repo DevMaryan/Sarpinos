@@ -7,6 +7,8 @@
     Orders <span class="badge badge-light">@Model.OrdersList.Count</span>
 </h1>
 
+
+
 <table class="table table-hover">
     <thead>
         <tr class="bg-dark text-light">
@@ -36,25 +38,31 @@
     <tbody>
         @foreach (var order in Model.OrdersList)
         {
-        <tr>
-            <td>@order.Name</td>
-            <td>@order.Surname</td>
-            <td>@order.Phone</td>
-            <td>@order.Address</td>
-            <td>@order.Message</td>
+            <tr>
+                <td>@order.Name</td>
+                <td>@order.Surname</td>
+                <td>@order.Phone</td>
+                <td>@order.Address</td>
+                <td>@order.Message</td>
 
-            @if (order.Status == Models.OrderStatus.Pending)
-            {
-            <td>
-                <a class="btn btn-success" asp-page="/Admin/OrderList" asp-page-handler="SetProcessed" asp-route-id="@order.Id">Set Processed</a>
-            </td> 
-             }
-            else
-            {
-            <td class="text-danger">Processed</td>                
-            }
-            <td><a asp-page="/Admin/OrderList" asp-page-handler="DeleteOrder" asp-route-id="@order.Id"><i class="fas fa-trash-alt text-danger"></i></a></td>
-        </tr>
+                @if (order.Status == Models.OrderStatus.Pending)
+                {
+                    <td>
+                        <a class="btn btn-danger" asp-page="/Admin/OrderList" asp-page-handler="SetProcessed" asp-route-id="@order.Id">Order in Kitchen</a>
+                    </td>
+                 }
+                else if (order.Status == Models.OrderStatus.Processed)
+                 {
+                    <td>
+                        <a class="btn btn-warning" asp-page="/Admin/OrderList" asp-page-handler="SetDone" asp-route-id="@order.Id">Order Ready</a>
+                    </td>
+                }
+                else
+                {
+                    <td class="text-success">Order Done</td>
+                }
+                <td><a asp-page="/Admin/OrderList" asp-page-handler="DeleteOrder" asp-route-id="@order.Id"><i class="fas fa-trash-alt text-danger"></i></a></td>
+            </tr>
         }
     </tbody>
 </table>

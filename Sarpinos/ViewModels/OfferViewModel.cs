@@ -12,5 +12,6 @@ namespace Sarpinos.ViewModels
         public string ImageUrl { get; set; }
         public string Description { get; set; }
         public DateTime ValidTo { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }

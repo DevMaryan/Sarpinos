@@ -33,6 +33,11 @@ namespace Sarpinos.Pages.Admin
             _orderService.SetProcessed(id);
             return RedirectToPage();
         }
+        public IActionResult OnGetSetDone(int id)
+        {
+            _orderService.SetDone(id);
+            return RedirectToPage();
+        }
 
         public IActionResult OnGetDeleteOrder(int id)
         {

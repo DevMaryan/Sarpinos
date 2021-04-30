@@ -16,6 +16,12 @@ namespace Sarpinos.Repositories
             _dbContext = dbContext;
         }
 
+        public void Create(Offer newOffer)
+        {
+            _dbContext.Offers.Add(newOffer);
+            _dbContext.SaveChanges();
+        }
+
         public List<Offer> GetAllValid()
         {
             return _dbContext.Offers.Where(x => x.ValidTo.Date >= DateTime.Now.Date).ToList();

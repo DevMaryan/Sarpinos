@@ -20,5 +20,14 @@ namespace Sarpinos.Pages
         {
             Message = "Thank you, for your subscription. \nStay tuned for more offers and products";
         }
+
+        public void OnGetNewItemCreated()
+        {
+            Message = "Hooraay, new menu item is successfully added!";
+        }
+        public void OnGetNewOfferCreated()
+        {
+            Message = "New offer on the way!";
+        }
     }
 }

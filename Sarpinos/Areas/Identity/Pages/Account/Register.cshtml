@@ -5,18 +5,6 @@
 }
 
 <h1>@ViewData["Title"]</h1>
-<style>
-    .ms-image {
-        background-image: url('https://docs.microsoft.com/en-us/azure/active-directory/develop/media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png');
-        background-repeat: repeat-y;
-        border: 0;
-        width: 215px;
-        height: 41px;
-        margin-top: 5px;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    }
-</style>
-
 
 <div class="row">
     <div class="col-md-4">
@@ -28,6 +16,21 @@
                 <label asp-for="Input.Email"></label>
                 <input asp-for="Input.Email" class="form-control" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Name"></label>
+                <input asp-for="Input.Name" class="form-control" />
+                <span asp-validation-for="Input.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Surname"></label>
+                <input asp-for="Input.Surname" class="form-control" />
+                <span asp-validation-for="Input.Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Address"></label>
+                <input asp-for="Input.Address" class="form-control" />
+                <span asp-validation-for="Input.Address" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Input.Password"></label>
@@ -63,27 +66,11 @@
                             <p>
                                 @foreach (var provider in Model.ExternalLogins)
                                 {
-                                    @if (provider.Name == "Google")
-                                    {
-                                        <!-- Second way to login with google-->
-                                        <div class="g-signin2" data-onsuccess="onSignIn" style="width: 215px;"></div>
-                                    }
-                                    else if (provider.Name == "Microsoft")
-                                    {
-                                        <button type="submit" name="provider" value="Microsoft" title="Log in using your Microsoft account" class="ms-image" style="width: 215px;"></button>
-                                    }
-
-                                    else
-                                    {
-                                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                    }
-
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
                                 }
                             </p>
                         </div>
                     </form>
-
-
                 }
             }
         </section>

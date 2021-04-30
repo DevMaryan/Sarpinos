@@ -9,5 +9,6 @@ namespace Sarpinos.Services.Interfaces
     public interface IOfferService
     {
         List<Offer> GetAllValid();
+        void Create(Offer newOffer);
     }
 }

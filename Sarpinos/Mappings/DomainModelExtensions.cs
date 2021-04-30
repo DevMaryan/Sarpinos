@@ -29,6 +29,7 @@ namespace Sarpinos.Mappings
                 ImageUrl = entity.ImageUrl,
                 Price = entity.Price,
                 Currency = entity.Currency,
+                DateCreated = entity.DateCreated,
                 Slug = entity.Slug,
             };
         }
@@ -45,5 +46,18 @@ namespace Sarpinos.Mappings
                 Status = entity.Status
             };
         }
+        public static MenuItemListViewModel ToMenuListViewModel(this MenuItem entity)
+        {
+            return new MenuItemListViewModel()
+            {
+                Id = entity.Id,
+                Name = entity.Name,
+                ImageUrl = entity.ImageUrl,
+                Price = entity.Price,
+                DateCreated = entity.DateCreated,
+            };
+
+        }
+
     }
 }

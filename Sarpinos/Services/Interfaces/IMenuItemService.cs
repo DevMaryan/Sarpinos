@@ -13,5 +13,8 @@ namespace Sarpinos.Services.Interfaces
         MenuItem GetById(int id);
 
         MenuItem GetBySlug(string slug);
+        void Create(MenuItem newMenuItem);
+        void Delete(MenuItem the_item);
+        void Update(MenuItem the_item);
     }
 }

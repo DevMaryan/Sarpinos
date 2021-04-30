@@ -34,6 +34,17 @@ namespace Sarpinos.Services
             return _orderRepository.GetAll();
         }
 
+        public void SetDone(int id)
+        {
+            Order order = _orderRepository.GetById(id);
+
+            if (order != null)
+            {
+                order.Status = OrderStatus.Done;
+                _orderRepository.Update(order);
+            }
+        }
+
         public void SetProcessed(int id)
         {
             Order order = _orderRepository.GetById(id);

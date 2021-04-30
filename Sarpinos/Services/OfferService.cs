@@ -17,6 +17,12 @@ namespace Sarpinos.Services
             _offersRepository = offersRepository;
         }
 
+        public void Create(Offer newOffer)
+        {
+            newOffer.DateCreated = DateTime.Now;
+            _offersRepository.Create(newOffer);
+        }
+
         public List<Offer> GetAllValid()
         {
             return _offersRepository.GetAllValid();

@@ -9,5 +9,6 @@ namespace Sarpinos.Services.Interfaces
         List<Order> GetAll();
         void SetProcessed(int id);
         void DeleteOrder(int id);
+        void SetDone(int id);
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Sarpinos.Models;
 using Sarpinos.Repositories;
 using Sarpinos.Repositories.Interfaces;
 using Sarpinos.Services;
@@ -34,8 +35,8 @@ namespace Sarpinos
                 options.UseSqlServer(Configuration.GetConnectionString("SarpinosDB"));
             });
 
-            //// Identity Framework
-            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<SarpinosDbContext>().AddDefaultTokenProviders();
+            //// Identity Framework + add the role .AddRole
+            services.AddDefaultIdentity<ApplicationUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<SarpinosDbContext>().AddDefaultTokenProviders();
 
 
             services.AddRazorPages();

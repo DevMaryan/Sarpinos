@@ -1,0 +1,62 @@
+﻿@page
+@model Sarpinos.Pages.Admin.UpdateMenuItemModel
+
+@{
+    ViewData["Title"] = "UpdateMenuItem";
+}
+
+<h3>Update @Model.MenuItem.Name</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MenuItem.Id" />
+            <div class="form-group">
+                <label asp-for="MenuItem.Name" class="control-label"></label>
+                <input asp-for="MenuItem.Name" class="form-control" />
+                <span asp-validation-for="MenuItem.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MenuItem.ImageUrl" class="control-label"></label>
+                <input asp-for="MenuItem.ImageUrl" class="form-control" />
+                <span asp-validation-for="MenuItem.ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MenuItem.Description" class="control-label"></label>
+                <input asp-for="MenuItem.Description" class="form-control" />
+                <span asp-validation-for="MenuItem.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MenuItem.Price" class="control-label"></label>
+                <input asp-for="MenuItem.Price" class="form-control" />
+                <span asp-validation-for="MenuItem.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MenuItem.Currency" class="control-label"></label>
+                <input asp-for="MenuItem.Currency" class="form-control" />
+                <span asp-validation-for="MenuItem.Currency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MenuItem.DateCreated" class="control-label"></label>
+                <input asp-for="MenuItem.DateCreated" class="form-control" />
+                <span asp-validation-for="MenuItem.DateCreated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MenuItem.Slug" class="control-label"></label>
+                <input asp-for="MenuItem.Slug" class="form-control" />
+                <span asp-validation-for="MenuItem.Slug" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
