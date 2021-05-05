@@ -1,4 +1,32 @@
 ﻿@page
 @model Sarpinos.Pages.Admin.UpdateUserModel
 @{
+    ViewData["Title"] = "Update User";
 }
+
+<div class="container d-flex justify-content-center">
+    <form asp-page-handler="UserUpdate" method="POST">
+        <div class="form-group">
+            <label asp-for="@Model.theUser.Address" class="control-label">Address</label>
+            <input asp-for="@Model.theUser.Address" class="form-control" />
+            <span asp-validation-for="@Model.theUser.Address" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.theUser.Surname" class="control-label">Surname</label>
+            <input asp-for="@Model.theUser.Surname" class="form-control" />
+            <span asp-validation-for="@Model.theUser.Surname" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.theUser.Name" class="control-label">Name</label>
+            <input asp-for="@Model.theUser.Name" class="form-control" />
+            <span asp-validation-for="@Model.theUser.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.User.Identity.Name" class="control-label">Name</label>
+            <input asp-for="@Model.User.Identity.Name" class="form-control" />
+            <span asp-validation-for="@Model.User.Identity.Name" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+
+</div>

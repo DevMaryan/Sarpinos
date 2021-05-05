@@ -17,17 +17,25 @@ namespace Sarpinos.Pages.Admin
         }
 
         [BindProperty]
-        public IdentityRole Role { get; set; }
+        public IdentityRole Roles { get; set; }
         public void OnGet()
         {
         }
 
-        public async Task<IActionResult> OnPostCreate(IdentityRole role)
+        public async Task<IActionResult> OnPost()
         {
-            role.NormalizedName = role.Name.ToUpper();
-            await _roleManager.CreateAsync(role);
-            
-            return RedirectToPage();
+            if (ModelState.IsValid)
+            {
+
+                var newRole = new IdentityRole();
+                var theName = Request.Form["Name"];
+                newRole.Name = theName;
+                newRole.Id = Guid.NewGuid().ToString();
+                await _roleManager.CreateAsync(newRole);
+                Console.WriteLine($"{newRole.Id} {newRole.Name}");
+            }
+
+            return RedirectToPage("Dashboard");
         }
     }
 }

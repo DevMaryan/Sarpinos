@@ -9,32 +9,31 @@ using Sarpinos.Models;
 
 namespace Sarpinos.Pages.Admin
 {
-    public class UsersModel : PageModel
+    public class UsersRoles : PageModel
     {
-        private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public UsersModel(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public UsersRoles(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
-            _userManager = userManager;
             _roleManager = roleManager;
         }
 
-        public List<ApplicationUser> Users { get; set; }
         public List<IdentityRole> Roles { get; set; }
         public void OnGet()
         {
-            Users = _userManager.Users.ToList();
             Roles = _roleManager.Roles.ToList();
         }
 
-        public async Task<IActionResult> OnGetDeleteUser(string userid)
+
+        public async Task<IActionResult> OnGetDeleteRole(string RoleId)
         {
-            var user = await _userManager.FindByIdAsync(userid);
-            await _userManager.DeleteAsync(user);
+            var role = await _roleManager.FindByIdAsync(RoleId);
+            await _roleManager.DeleteAsync(role);
+
             return RedirectToPage();
         }
 
 
     }
 }
+
